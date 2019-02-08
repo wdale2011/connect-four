@@ -5,6 +5,7 @@ h1 {
     text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
 }
 
 h2#turn-indicator {
