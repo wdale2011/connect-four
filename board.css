@@ -1,0 +1,34 @@
+#board {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    grid-template-rows: repeat(6, 100px);
+    grid-template-columns: repeat(7, 100px);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.slot {
+    background-color: var(--background-color);
+    padding: 10%
+}
+
+.slot label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slot label.yellow {
+    background-color: var(--player1-color)
+}
+
+.slot label.red {
+    background-color: var(--player2-color)
+}
+
+.slot input[type=checkbox] {
+    display: none;
+}
