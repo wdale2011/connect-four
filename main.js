@@ -3,7 +3,6 @@ const playerIndicator = document.getElementById('player-indicator');
 
 const BOARDCOLS = 7;
 const BOARDROWS = 6;
-
 // setup board
 // bounds: i j
 // directions i j
