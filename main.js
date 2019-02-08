@@ -1,6 +1,9 @@
 const board = document.getElementById('board');
 const playerIndicator = document.getElementById('player-indicator');
 
+const BOARDCOLS = 7;
+const BOARDROWS = 6;
+
 // setup board
 // bounds: i j
 // directions i j
@@ -31,9 +34,10 @@ function runTurn(input) {
     // enable the slot at (row + 1, col)
     const { row, col } = input.dataset;
     // check if input is on the top row
-    const neighbor = document.getElementById(`slot${col}${parseInt(row) + 1}`);
-    neighbor.disabled = false;
-
+    if (row < BOARDROWS - 1) {
+        const neighbor = document.getElementById(`slot${col}${parseInt(row) + 1}`);
+        neighbor.disabled = false;
+    }
     // change who's turn it is
     player1Turn = !player1Turn;
     
