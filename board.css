@@ -1,10 +1,13 @@
+@import 'variables.css';
+
 #board {
     display: grid;
     margin: auto;
     width: 100%;
     grid-template-rows: repeat(6, 100px);
     grid-template-columns: repeat(7, 100px);
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1)
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
 
 .slot {
@@ -21,11 +24,11 @@
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.slot label.yellow {
+.slot label.player1 {
     background-color: var(--player1-color)
 }
 
-.slot label.red {
+.slot label.player2 {
     background-color: var(--player2-color)
 }
 
