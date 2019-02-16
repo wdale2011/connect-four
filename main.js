@@ -156,5 +156,6 @@ function checkUpRight(col, row, currentPlayer){
             else break;
         }
 
+
     return sameColorNeighbors >= 3
 }
