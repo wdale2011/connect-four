@@ -1,5 +1,7 @@
 const board = document.getElementById('board');
 const playerIndicator = document.getElementById('player-indicator');
+const turnIndicator = document.getElementById('turn-indicator');
+const background = document.getElementById('background');
 
 const BOARDCOLS = 7;
 const BOARDROWS = 6;
@@ -37,6 +39,16 @@ function runTurn(input) {
         const neighbor = document.getElementById(`slot${col}${parseInt(row) + 1}`);
         neighbor.disabled = false;
     }
+
+    const isWin = checkWin(parseInt(col), parseInt(row), player1Turn ? 'player1' : 'player2');
+
+    //Check Win
+    if (isWin) {
+        turnIndicator.innerHTML = `<span class='${player1Turn ? 'player1' : 'player2'}'id="player-indicator">${player1Turn ? 'USA' : 'USSR'}</span> Wins!!!`
+        document.querySelectorAll('.slot input[type=checkbox]').forEach(slot => slot.disabled = true);
+        return;
+    }
+
     // change who's turn it is
     player1Turn = !player1Turn;
     
@@ -49,33 +61,27 @@ function runTurn(input) {
         playerIndicator.className = 'player2'
     }
 
-    //Check win
-    function checkWin (col, row, currentPlayer) {
-        return checkVertical(col, row, currentPlayer)
-        || checkHorizontal(col, row, currentPlayer);
-    }
-
-    //Check Win
-    if (isWin) {
-        alert('Winner!')
-        return;
-    }
     //Update win text (win celebrations)
 }
 
-const isWin = checkWin(parseInt(col), parseInt(row), player1Turn ? 'player1' : 'player2');
-const currentSlotPlayer = document.getElementById(`slot${col}${j}`).parentElement.className;
+//Check win
+function checkWin (col, row, currentPlayer) {
+    return checkVertical(col, row, currentPlayer)
+    || checkHorizontal(col, row, currentPlayer)
+    || checkDiagonal(col, row, currentPlayer);
+}
 
 //Check vertical
 function checkVertical (col, row, currentPlayer) {
 
 if (row < 3) return false; //cannot connect 4 if it's only stacked 3 or less
 
-
-
 for (let j = row - 1; j > row - 4; j--) {
+    const currentSlotPlayer = document.getElementById(`slot${col}${j}`).parentElement.className;
     if (currentSlotPlayer !== currentPlayer) return false;
     }
+
+    return true;
 }
 
 //Check horizontal
@@ -92,9 +98,9 @@ function checkHorizontal(col, row, currentPlayer) {
     }
     
     //Check Left
-    for (let i = col - 1; i < col - 4; i--) {
+    for (let i = col - 1; i >= col - 3; i--) {
         //Break if out of bounds
-        if (i <= 0) break;
+        if (i < 0) break;
         const currentSlotPlayer = document.getElementById(`slot${i}${row}`).parentElement.className;
         if (currentSlotPlayer === currentPlayer) sameColorNeighbors += 1;
         else break;
@@ -105,7 +111,7 @@ function checkHorizontal(col, row, currentPlayer) {
 
 //Check Diagonal
 function checkDiagonal(col, row, currentPlayer){
-    return checkUpLeft(col, row, currentPlayer) || checkDownRight(col, row, currentPlayer)
+    return checkUpLeft(col, row, currentPlayer) || checkUpRight(col, row, currentPlayer)
 }
 
     //Search up-left
@@ -113,18 +119,42 @@ function checkDiagonal(col, row, currentPlayer){
     let sameColorNeighbors = 0;
     for (let i = 1; i < 4; i++) {
     //Break if out of bounds
-        if (col - i < 0 || row + 1 >= BOARDCOLS) break;
-        const currentSlotPlayer = document.getElementById(`slot${col - i}${row + 1}`).parentElement.className;
+        if (col - i < 0 || row + i >= BOARDROWS) break;
+        const currentSlotPlayer = document.getElementById(`slot${col - i}${row + i}`).parentElement.className;
         if (currentSlotPlayer === currentPlayer) sameColorNeighbors += 1;
         else break;
     }
 
+    //Down-right
+    for (let i = 1; i < 4; i++) {
+        //Break if out of bounds
+            if (col + i >= BOARDCOLS || row - i < 0) break;
+            const currentSlotPlayer = document.getElementById(`slot${col + i}${row - i}`).parentElement.className;
+            if (currentSlotPlayer === currentPlayer) sameColorNeighbors += 1;
+            else break;
+        }
+
     return sameColorNeighbors >= 3
 }
 
-    /*Search down-right
-    function checkDownRight(col, row, currentPlayer){
-        for (let i=1; i < 4; i++) {
+function checkUpRight(col, row, currentPlayer){
+    let sameColorNeighbors = 0;
+    for (let i = 1; i < 4; i++) {
+    //Break if out of bounds
+        if (col + i >= BOARDCOLS || row + i >= BOARDROWS) break;
+        const currentSlotPlayer = document.getElementById(`slot${col + i}${row + i}`).parentElement.className;
+        if (currentSlotPlayer === currentPlayer) sameColorNeighbors += 1;
+        else break;
+    }
 
+    //Down-right
+    for (let i = 1; i < 4; i++) {
+        //Break if out of bounds
+            if (col - i < 0 || row - i < 0) break;
+            const currentSlotPlayer = document.getElementById(`slot${col - i}${row - i}`).parentElement.className;
+            if (currentSlotPlayer === currentPlayer) sameColorNeighbors += 1;
+            else break;
         }
-    } */
+
+    return sameColorNeighbors >= 3
+}

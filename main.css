@@ -10,5 +10,19 @@ body {
     text-align: center;
     height: 100%;
     margin: 10px;
-    background-color: violet
+    color: rgb(252, 192, 40);
+}
+
+.gradient {
+    background-image: linear-gradient(to right, blue, red);
+}
+
+.america {
+    background-image: url(./images/americaWin.jpg);
+    background-size: cover;
+}
+
+.soviet {
+    background-image: url(./images/sovietWin.jpg);
+    background-size: cover;
 }
