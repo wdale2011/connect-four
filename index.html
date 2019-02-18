@@ -16,8 +16,12 @@
         </audio>
         <iframe allow="autoplay" style="display:none" id="audio">
         </iframe>
-        <h1>Connect Four : Cold War</h1>
+        <h1 class="outline">Connect Four : <span style="color:lightblue">Cold War</span></h1>
         <h2 id="turn-indicator"><span class="player1" id="player-indicator">Player 1</span> turn</h2>
+        <h2 id="scoreBoard">
+            <span id="usScore">USA : 0</span>
+            <span id="ussrScore">USSR : 0</span>
+        </h2>
         <button onclick="resetGame()" class="hidden">New Game</button>
         <div id="board"></div>
         <script src="main.js"></script>

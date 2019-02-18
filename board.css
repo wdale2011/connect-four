@@ -44,7 +44,9 @@
 }
 
 button {
-    width: 85%;
+    margin: auto;
+    width: 57%;
+    justify-content: center;
     color: goldenrod;
     font-size: 18pt;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif

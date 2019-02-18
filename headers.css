@@ -10,7 +10,8 @@ h1 {
 h2#turn-indicator {
     background-color: #333;
     color: white;
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 0%;
     text-transform: uppercase;
 }
 
@@ -20,6 +21,31 @@ h2#turn-indicator
     }
 
 h2#turn-indicator 
-    #player-indicator.player2{
+    #player-indicator.player2 {
         color: var(--player2-color);
     }
+
+h2#scoreBoard {
+    background-image: linear-gradient(to left, red, blue);
+    display: inline block;
+    width: 100%;
+    margin: 0%;
+    margin-bottom: 2%;
+    }
+h2#scoreBoard 
+    #usScore{
+        color:rgb(238, 221, 221);
+        padding-right: 30%;
+    }
+    #ussrScore{
+        color: yellow;
+        padding-left: 30%;
+    }
+
+.outline {
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
