@@ -44,3 +44,16 @@
 .slot input[type=checkbox] {
     display: none;
 }
+
+button {
+    margin: auto;
+    width: 57%;
+    justify-content: center;
+    color: goldenrod;
+    font-size: 18pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.hidden {
+    display: none;
+}
