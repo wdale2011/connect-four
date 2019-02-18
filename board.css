@@ -42,3 +42,14 @@
 .slot input[type=checkbox] {
     display: none;
 }
+
+button {
+    width: 85%;
+    color: goldenrod;
+    font-size: 18pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.hidden {
+    display: none;
+}

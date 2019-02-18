@@ -2,6 +2,8 @@ const board = document.getElementById('board');
 const playerIndicator = document.getElementById('player-indicator');
 const turnIndicator = document.getElementById('turn-indicator');
 const background = document.getElementById('background');
+const audio = document.body.querySelector("audio");
+const button = document.body.querySelector("button");
 
 const BOARDCOLS = 7;
 const BOARDROWS = 6;
@@ -42,11 +44,20 @@ function runTurn(input) {
 
     const isWin = checkWin(parseInt(col), parseInt(row), player1Turn ? 'player1' : 'player2');
 
-    //Check Win
+    //If it is a win...
     if (isWin) {
-        turnIndicator.innerHTML = `<span class='${player1Turn ? 'player1' : 'player2'}'id="player-indicator">${player1Turn ? 'USA' : 'USSR'}</span> Wins!!!`
+        turnIndicator.innerHTML = `<span class="${player1Turn ? 'player1' : 'player2'}" id="player-indicator">${player1Turn ? 'The United States' : 'The Soviet Union'}</span> Wins!!!`;
+
+        background.className = `${player1Turn ? 'america' : 'soviet'}`;
+
+        audio.src=`${player1Turn ? './music/TheStarSpangledBanner.mp3' : './music/ussr_national_anthem_instrumental.mp3'}`;
+
         document.querySelectorAll('.slot input[type=checkbox]').forEach(slot => slot.disabled = true);
-        return;
+
+        //Show reset game button
+        button.className='';
+        
+        console.log(playerIndicator);
     }
 
     // change who's turn it is
@@ -56,12 +67,11 @@ function runTurn(input) {
     if (player1Turn) {
         playerIndicator.innerText = 'Player 1'
         playerIndicator.className = 'player1'
+        console.log('update player indicator')
     } else {
         playerIndicator.innerText = 'Player 2'
         playerIndicator.className = 'player2'
     }
-
-    //Update win text (win celebrations)
 }
 
 //Check win
@@ -157,4 +167,27 @@ function checkUpRight(col, row, currentPlayer){
         }
 
     return sameColorNeighbors >= 3
+}
+
+function resetGame () {
+    let boardHtml = '';
+    for (let row = 5; row >= 0; row--) {
+    for (let col = 0; col < 7; col++) {
+        boardHtml += `
+            <div class="slot">
+                <label for="slot${col}${row}">
+                    <input onchange="runTurn(this)" type="checkbox" ${row > 0 ? 'disabled' : ''} name="slot${col}${row}" id="slot${col}${row}" data-row=${row} data-col="${col}">
+                </label>
+            </div>`;
+        }
+    }
+    //Reset the board's html
+    board.innerHTML = boardHtml;
+    //Reset the victory art, music, and hide button
+    audio.src='';
+    background.className='gradient';
+    button.className='hidden';
+    //Reset players
+    player1Turn = true;
+    turnIndicator.innerHTML=`<span class="player1" id="player-indicator">Player 1</span> turn`;
 }
