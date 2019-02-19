@@ -7,4 +7,4 @@
     - [x] Change who's turn is is
     - [x] Change who's turn is displayed
     - [x] Disable invalid slots
-- [ ] Win Logic
+- [x] Win Logic
