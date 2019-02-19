@@ -3,7 +3,6 @@
 #board {
     display: grid;
     margin: auto;
-    width: 100%;
     grid-template-rows: repeat(6, 100px);
     grid-template-columns: repeat(7, 100px);
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);

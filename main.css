@@ -8,14 +8,22 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
-    margin: 10px;
+    height: auto;
+    width: auto;
+    margin: auto;
     color: gold;
+    background-image: repeating-linear-gradient(to right, blue, red);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.gradient {
-    background-image: linear-gradient(to right, blue, red);
-}
+@media screen and (max-width: 600px) {
+    body {
+        width: 200vw;
+        height: 200vh;
+        background-size: 200vw;
+    }
+  }
 
 .america {
     background-image: url(./images/americaWin.jpg);

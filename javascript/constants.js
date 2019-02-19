@@ -1,0 +1,10 @@
+export const BOARDCOLS = 7;
+export const BOARDROWS = 6;
+export const roundNumber = 0;
+export const board = document.getElementById('board');
+export const turnIndicator = document.getElementById('turn-indicator');
+export const background = document.getElementById('background');
+export const audio = document.body.querySelector("audio");
+export const button = document.body.querySelector("button");
+export const usScoreText = document.getElementById("usScore");
+export const ussrScoreText = document.getElementById("ussrScore");
