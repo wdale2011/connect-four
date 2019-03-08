@@ -1,58 +1,68 @@
-@import 'variables.css';
+@import "variables.css";
 
 #board {
-    display: grid;
-    margin: auto;
-    grid-template-rows: repeat(6, 100px);
-    grid-template-columns: repeat(7, 100px);
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    justify-content: center;
-    padding-bottom: 10%
-
+  display: grid;
+  margin: auto;
+  grid-template-rows: repeat(6, 100px);
+  grid-template-columns: repeat(7, 100px);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  padding-bottom: 0px;
 }
 
 .slot {
-    background-color: var(--background-color);
-    padding: 10%
+  background-color: var(--background-color);
+  padding: 10%;
 }
 
 .slot label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background-image: url(./images/globe.png);
-    background-size: cover;
-    background-color: azure;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-image: url(./images/globe.png);
+  background-size: cover;
+  background-color: azure;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slot label:hover {
+  cursor: pointer;
+  opacity: 0.25;
 }
 
 .slot label.player1 {
-    background-color: var(--player1-color);
-    background-image: url(./images/america.png);
-    background-size: cover
+  background-color: var(--player1-color);
+  background-image: url(./images/america.png);
+  background-size: cover;
+  cursor: default;
+  opacity: 1;
 }
 
 .slot label.player2 {
-    background-color: var(--player2-color);
-    background-image: url(./images/soviet.png);
-    background-size: cover
-
+  background-color: var(--player2-color);
+  background-image: url(./images/soviet.png);
+  background-size: cover;
+  cursor: default;
+  opacity: 1;
 }
 
-.slot input[type=checkbox] {
-    display: none;
+.slot input[type="checkbox"] {
+  display: none;
 }
 
 button {
-    margin: auto;
-    width: 57%;
-    justify-content: center;
-    color: goldenrod;
-    font-size: 18pt;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  margin: auto;
+  width: 57%;
+  justify-content: center;
+  color: goldenrod;
+  font-size: 18pt;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+.grid-item {
+  border: 1px solid red;
 }

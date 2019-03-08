@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE Edge">
-        <title>Connect Four: Cold War</title>
-        <meta name="viewport" content="width=device-width", initial-scale=1>
-        <link rel="stylesheet" href="board.css">
-        <link rel="stylesheet" href="variables.css">
-        <link rel="stylesheet" href="headers.css">
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body id="background" class="">
-        <audio src="" autoplay>
-            Your browser does not support playing audio files
-        </audio>
-        <iframe allow="autoplay" style="display:none" id="audio">
-        </iframe>
-        <h1 class="outline">Connect Four : <span style="color:lightblue">Cold War</span></h1>
-        <h2 id="turn-indicator"><span class="player1" id="player-indicator">Player 1</span> turn</h2>
-        <h2 id="scoreBoard">
-            <span id="usScore">USA : 0</span>
-            <span id="ussrScore">USSR : 0</span>
-        </h2>
-        <button onclick="" class="hidden">New Game</button>
-        <div id="board"></div>
-        <script src="./javascript/main.js" type="module"></script>
-    </body>
-    <footer>
-
-    </footer>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE Edge" />
+    <title>Connect Four: Cold War</title>
+    <meta name="viewport" content="width=device-width" , initial-scale="1" />
+    <link rel="stylesheet" href="board.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="headers.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body id="background" class="">
+    <div class="container">
+      <audio src="" autoplay>
+        Your browser does not support playing audio files
+      </audio>
+      <iframe allow="autoplay" style="display:none" id="audio"> </iframe>
+      <h1 class="outline">
+        Connect Four : <span style="color:lightblue">Cold War</span>
+      </h1>
+      <h2 id="turn-indicator">
+        <span class="player1" id="player-indicator">Player 1</span> turn
+      </h2>
+      <h2 id="scoreBoard">
+        <span id="usScore">USA : 0</span>
+        <span id="ussrScore">USSR : 0</span>
+      </h2>
+      <button onclick="" class="hidden">New Game</button>
+      <div id="board"></div>
+      <script src="./javascript/main.js" type="module"></script>
+    </div>
+  </body>
+  <footer></footer>
 </html>
